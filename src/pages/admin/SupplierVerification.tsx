@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, XCircle, FileText, ExternalLink, ShieldCheck, UserCheck, AlertCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, FileText, ExternalLink, ShieldCheck, UserCheck, AlertCircle, Clock } from 'lucide-react';
 import { MOCK_SUPPLIERS } from '../../constants';
 import { cn } from '../../lib/utils';
 
@@ -117,9 +117,4 @@ export default function SupplierVerification() {
       </div>
     </div>
   );
-}
-
-// Mock missing icon
-function Clock(props: any) {
-  return <ShieldCheck {...props} />;
 }

@@ -31,30 +31,30 @@ export function Layout() {
   if (!user) return null;
 
   const buyerLinks = [
-    { to: '/', icon: LayoutDashboard, label: 'Control Center' },
-    { to: '/suppliers', icon: Search, label: 'Live Marketplace' },
-    { to: '/saved', icon: Star, label: 'Verified Partners' },
-    { to: '/tracking', icon: Truck, label: 'Supply Chain Tracker' },
+    { to: '/app', icon: LayoutDashboard, label: 'Control Center' },
+    { to: '/app/suppliers', icon: Search, label: 'Live Marketplace' },
+    { to: '/app/saved', icon: Star, label: 'Verified Partners' },
+    { to: '/app/tracking', icon: Truck, label: 'Supply Chain Tracker' },
   ];
 
   const supplierLinks = [
-    { to: '/', icon: LayoutDashboard, label: 'Factory Hub' },
-    { to: '/inventory', icon: Package, label: 'Inventory Suite' },
-    { to: '/inquiries', icon: MessageSquare, label: 'RFQ Pipeline' },
-    { to: '/tracking', icon: Truck, label: 'Shipment Logs' },
+    { to: '/app', icon: LayoutDashboard, label: 'Factory Hub' },
+    { to: '/app/inventory', icon: Package, label: 'Inventory Suite' },
+    { to: '/app/inquiries', icon: MessageSquare, label: 'RFQ Pipeline' },
+    { to: '/app/tracking', icon: Truck, label: 'Shipment Logs' },
   ];
 
   const adminLinks = [
-    { to: '/admin', icon: Activity, label: 'Platform Intel' },
-    { to: '/admin/verification', icon: UserCheck, label: 'Supplier Audit' },
-    { to: '/suppliers', icon: Search, label: 'Global Directory' },
+    { to: '/app/admin', icon: Activity, label: 'Platform Intel' },
+    { to: '/app/admin/verification', icon: UserCheck, label: 'Supplier Audit' },
+    { to: '/app/suppliers', icon: Search, label: 'Global Directory' },
   ];
 
   const links = user.role === 'BUYER' ? buyerLinks : user.role === 'SUPPLIER' ? supplierLinks : adminLinks;
 
   const handleLogout = () => {
     setUser(null);
-    navigate('/welcome');
+    navigate('/');
   };
 
   return (
@@ -132,7 +132,7 @@ export function Layout() {
           <div className="flex items-center gap-3 text-sm font-medium text-gray-400">
              <span className="text-sidebar-bg font-bold">Home</span>
              <span className="text-gray-300">/</span>
-             <span className="capitalize">{location.pathname === '/' ? 'Dashboard' : location.pathname.substring(1).replace('/', ' / ')}</span>
+             <span className="capitalize">{location.pathname === '/app' ? 'Dashboard' : location.pathname.replace('/app/', '').replace('/', ' / ')}</span>
           </div>
 
           <div className="flex items-center gap-6">

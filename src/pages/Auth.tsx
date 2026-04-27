@@ -32,7 +32,7 @@ export default function Auth() {
       email: 'user@example.com',
       role: role
     });
-    navigate(role === 'ADMIN' ? '/admin' : '/');
+    navigate(role === 'ADMIN' ? '/app/admin' : '/app');
   };
 
   return (
@@ -62,7 +62,7 @@ export default function Auth() {
           <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
           
           <div className="relative z-10 space-y-12">
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/welcome')}>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
                <ShieldCheck className="text-sporty-green w-10 h-10" />
                <span className="text-3xl font-serif font-black tracking-tighter">B2B <span className="text-sporty-green">HUB</span></span>
             </div>

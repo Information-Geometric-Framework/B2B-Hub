@@ -27,12 +27,12 @@ function AppRoutes() {
   return (
     <Routes>
       {/* Public Pages */}
-      <Route path="/welcome" element={<Landing />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/about" element={<About />} />
 
       {/* Protected App Pages */}
-      <Route path="/" element={user ? <Layout /> : <Navigate to="/welcome" replace />}>
+      <Route path="/app" element={user ? <Layout /> : <Navigate to="/auth" replace />}>
         <Route index element={<Dashboard />} />
         <Route path="suppliers" element={<SupplierDirectory />} />
         <Route path="suppliers/:id" element={<SupplierDetail />} />
